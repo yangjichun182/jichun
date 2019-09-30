@@ -9,6 +9,7 @@
 	<typeAliases>
 		<typeAlias type="com.jichun.domain.Student" alias="Student" />
 		<typeAlias type="com.jichun.domain.Employees" alias="Employees" />
+		<typeAlias type="com.jichun.domain.User" alias="User" />
 	</typeAliases>
 </configuration>
 

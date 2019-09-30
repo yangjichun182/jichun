@@ -4,7 +4,39 @@
 
 <mapper namespace="com.jichun.dao.EmpDao">
 
+	<insert id="save" parameterType="Employees">
+			INSERT INTO HR.EMPLOYEES 
+			(
+					EMPLOYEE_ID   	, 
+					FIRST_NAME		, 
+					LAST_NAME		, 
+					EMAIL			, 
+					PHONE_NUMBER	, 
+					HIRE_DATE		, 
+					JOB_ID			, 
+					SALARY			, 
+					COMMISSION_PCT	, 
+					MANAGER_ID		, 
+					DEPARTMENT_ID
+			)
+			VALUES 
+			(
+				 #EMPLOYEE_ID,
+				 #FIRST_NAME,
+				 #LAST_NAME,
+				 #EMAIL,
+				 #PHONE_NUMBER,
+				 to_date(#HIRE_DATE,'yyyy-mm-dd'),
+				 #JOB_ID,
+				 #SALARY,
+				 #COMMISSION_Pct,
+				 #MANAGER_ID,
+				 #DEPARTMENT_ID,
+			)
+	</insert>
+
 	<select id="getEmp" resultType="Employees" parameterType="String">
-		select * from Employees where EMPLOYEE_ID =#{id}
+		select
+		* from hr.Employees WHERE employee_id =#{id}
 	</select>
 </mapper>                                                                                    

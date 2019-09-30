@@ -8,11 +8,12 @@
 <mapper namespace="com.jichun.dao.StudentDao">
 
 	<insert id="save" parameterType="Student">
-		insert into
-		t_app_student(id,name,sex,age)
-		values(#{ID},#{NAME},#{SEX},#{AGE})
+		INSERT INTO
+		student(id,name,sex,age)
+		VALUES(#{ID},#{NAME},#{SEX},#{AGE})
 	</insert>
+
 	<select id="getStudent" resultType="Student" parameterType="String">
-		select * from t_app_student where ID =#{id}
+		select * from student where ID =#{id}
 	</select>
 </mapper>                                                                                                  
