@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jichun:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>jichun</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="jichun.war">
+      <element id="artifact" artifact-name="jichun:war exploded" />
+    </root>
+  </artifact>
+</component>
