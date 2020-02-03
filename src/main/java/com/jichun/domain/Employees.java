@@ -1,7 +1,5 @@
 package com.jichun.domain;
 
-import java.util.Date;
-
 public class Employees {
 	private int EMPLOYEE_ID;
 	private String FIRST_NAME;//

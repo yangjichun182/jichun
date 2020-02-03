@@ -1,0 +1,30 @@
+drop table os_user purge;
+
+create table os_user(
+user_id            varchar2(100)      ,
+user_password      varchar2(100)      ,
+user_valid_flag    char(10) default '0',  -- 默认值'0'代表无效 置为 ‘1’代表有效
+user_regist_time   timestamp(6)
+);
+
+
+comment on table os_user is '用户表';
+
+
+comment on column os_user.user_id            is '用户ID';
+comment on column os_user.user_password      is '用户密码';
+comment on column os_user.user_valid_flag    is '用户有效标志';
+comment on column os_user.user_regist_time   is '用户注册时间';
+
+-- 为该表增加主键列
+alter table os_user add constraint pk_os_user  primary key(user_id);
+
+
+
+insert into os_user 
+values ('001','123456','1','2019-09-29 16:51:41.073');
+
+insert into os_user 
+values ('001','123456','1',to_timestamp('2019-09-29 17:51:09.716','yyyy-mm-dd hh24:mi:ss.ff'));
+
+2019-09-29 17:51:09.716

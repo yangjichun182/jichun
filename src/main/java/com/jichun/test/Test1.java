@@ -1,20 +1,18 @@
 package com.jichun.test;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
+import com.jichun.domain.Employees;
+import com.jichun.domain.User;
+import com.jichun.services.EpmService;
+import com.jichun.services.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.jichun.domain.Employees;
-import com.jichun.domain.Student;
-import com.jichun.domain.User;
-import com.jichun.services.EpmService;
-import com.jichun.services.UserService;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring/application.xml" })
@@ -24,6 +22,14 @@ public class Test1 {
 
 	@Autowired(required = true)
 	private UserService service1;
+	
+	@Test
+	public void testMain() {
+		String str = "dfhfdjg";
+		int indexOf = str.indexOf("h");
+		System.out.println(indexOf);
+	}
+
 
 	@Test
 	public void test1() {
@@ -70,7 +76,14 @@ public class Test1 {
 	
 	@Test
 	public void test_get_user(){
-		User user = service1.get_User(3);
+		User user = service1.get_User("3");
 		System.out.println(user.getUser_password());
 	}
+	
+	@Test
+	public void test_jichun(){
+		
+	}
+
+
 }

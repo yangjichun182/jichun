@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+ "classpath:dtd/mybatis-3-mapper.dtd">
+<!-- ../../dtd/mybatis-3-mapper.dtd 上面的这种使用相对路径的方式是可以的，我们发现相对路径就是相对于本文件的路径，前面的写法就是在本文件目录的 
+	上级目录的上级目录下的 dtd/mybatis-3-mapper.dtd -->
+<!-- 上面的通过相对路径的方式不行，不能够找到对应的文件，通过classpath的方式是可以找到的 -->
+<!-- "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" -->
+<!-- #USER_VALID_FLAG,to_timestamp(#USER_REGIST_TIME,'yyyy-mm-dd hh24:mi:ss.ff') -->
+<mapper namespace="com.jichun.dao.UserDao">
+
+	<insert id="insert_user" parameterType="com.jichun.domain.User">
+		INSERT INTO OS_USER
+		(
+			USER_ID ,
+			USER_PASSWORD ,
+			USER_VALID_FLAG ,
+			USER_REGIST_TIME
+		)
+		VALUES
+		(
+			#{user_id} ,
+			#{user_password} ,
+			#{user_valid_flag} ,
+			to_timestamp(#{user_regist_time},'yyyy-mm-dd hh24:mi:ss.ff')
+			<!-- 说明：20190930 这个地方将我坑惨了，后面的values字段部分，一定要用和业务bean中的完全一样，大小写斗殴必须相同 -->
+		)
+	</insert>
+	
+	<update id="update_user_status" > 
+	    update os_user a set a.user_valid_flag='0' where a.user_id=#{id}
+	</update>
+	
+	<delete id="delete_user">
+		delete from os_user a where a.user_id=#{id}
+	</delete>
+	
+	<select id="get_User" resultType="com.jichun.domain.User"  parameterType="String">
+	   SELECT *
+	   FROM   OS_USER 
+	   WHERE USER_ID=#{id}
+	</select>
+</mapper>
